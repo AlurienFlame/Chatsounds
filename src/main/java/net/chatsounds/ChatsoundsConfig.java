@@ -3,6 +3,9 @@ package net.chatsounds;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 
 @Config(name = "chatsounds")
 class ChatsoundsConfig implements ConfigData {
@@ -16,7 +19,7 @@ class ChatsoundsConfig implements ConfigData {
 
     // Message
     @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
-    MessageConfig messageConfig = new MessageConfig();
+    MessageConfig message = new MessageConfig();
 
     static class MessageConfig {
         boolean enabled = true;
@@ -27,26 +30,31 @@ class ChatsoundsConfig implements ConfigData {
         // String messageSound = "entity.item.pickup";
         // List<String> messageSound = Arrays.asList(Registry.SOUND_EVENT.getIds().toArray()).stream().map(item -> item.getPath()).collect(Collectors.toList());
         // List<String> messageSound = Arrays.asList("entity.item.pickup", "entity.experience_orb.pickup", "entity.arrow.hit_player", "block.beehive.enter", "block.lava.pop");
-        // TODO: make every sound in the game available
-        // FIXME: Needs identifiers, not strings.
-
-        public MessageSounds sound = MessageSounds.ENTITY_ITEM_PICKUP;
+        
+        public Sounds sound = Sounds.ENTITY_ITEM_PICKUP;
     }
-
-    enum MessageSounds {
-        ENTITY_ITEM_PICKUP("entity.item.pickup"),
-        ENTITY_EXPERIENCE_ORB_PICKUP("entity.experience_orb.pickup"),
-        ENTITY_ARROW_HIT_PLAYER("entity.arrow.hit_player");
+    
+    enum Sounds {
+        // TODO: make every sound in the game available
+        ENTITY_ITEM_PICKUP(SoundEvents.ENTITY_ITEM_PICKUP),
+        ENTITY_EXPERIENCE_ORB_PICKUP(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP),
+        ENTITY_ARROW_HIT_PLAYER(SoundEvents.ENTITY_ARROW_HIT_PLAYER);
 
         private final String label;
+        private final Identifier id;
 
-        MessageSounds(final String label) {
-            this.label = label;
+        Sounds(final SoundEvent event) {
+            this.id = event.getId();
+            this.label = id.toString();
         }
     
         @Override
         public String toString() {
             return label;
+        }
+
+        public Identifier getId() {
+            return this.id;
         }
     }
 }
