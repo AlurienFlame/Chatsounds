@@ -19,6 +19,9 @@
   "entrypoints": {
     "client": [
       "net.chatsounds.Chatsounds"
+    ],
+    "modmenu": [
+      "net.chatsounds.ModMenuIntegration"
     ]
   },
   "mixins": [

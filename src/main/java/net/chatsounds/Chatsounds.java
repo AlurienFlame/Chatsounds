@@ -2,6 +2,8 @@ package net.chatsounds;
 
 import java.util.List;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.sound.PositionedSoundInstance;
@@ -15,6 +17,10 @@ public class Chatsounds implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        // Setup config
+        AutoConfig.register(ChatsoundsConfig.class, GsonConfigSerializer::new);
+
+        // Every tick, do the following:
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             List<String> messages = client.inGameHud.getChatHud().getMessageHistory();
             // TODO: Detect join and leave messages and play a different sound for them.
