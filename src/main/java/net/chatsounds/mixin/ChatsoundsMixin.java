@@ -10,10 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
-import net.minecraft.client.sound.PositionedSoundInstance;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.text.TranslatableText;
 
 // TODO: Detect join, leave, death, and private messages and play different sounds for them.
@@ -25,28 +22,32 @@ public class ChatsoundsMixin {
 
         ChatsoundsConfig config = AutoConfig.getConfigHolder(ChatsoundsConfig.class).getConfig();
         MinecraftClient client = MinecraftClient.getInstance();
+        double x = client.player.getX();
+        double y = client.player.getY();
+        double z = client.player.getZ();
 
         if (message instanceof TranslatableText) {
             String key = ((TranslatableText)message).getKey();
+            System.out.println(String.format("Translation key: %s", key));
 
             switch(key) {
                 case "chat.type.text":
                     // TODO: Check if config.enabled
-                    client.getSoundManager().play(new PositionedSoundInstance(config.message.sound.getId(), SoundCategory.PLAYERS, config.message.volume, config.message.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, client.player.getX(), client.player.getY(), client.player.getZ(), false));
+                    client.getSoundManager().play(config.message.getChatSound(x, y, z));
                     break;
                 
                 case "commands.message.display.incoming":
-                    client.getSoundManager().play(new PositionedSoundInstance(config.pm.sound.getId(), SoundCategory.PLAYERS, config.pm.volume, config.pm.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, client.player.getX(), client.player.getY(), client.player.getZ(), false));
+                    client.getSoundManager().play(config.pm.getChatSound(x, y, z));
                     break;
 
                 default:
                     System.out.println(String.format("Chatsounds failed to recognize translation key: %s", key));
-                    client.getSoundManager().play(new PositionedSoundInstance(config.message.sound.getId(), SoundCategory.PLAYERS, config.message.volume, config.message.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, client.player.getX(), client.player.getY(), client.player.getZ(), false));
+                    client.getSoundManager().play(config.message.getChatSound(x, y, z));
             }
 
         } else {
             System.out.println("Chatsounds failed to find translation key.");
-            client.getSoundManager().play(new PositionedSoundInstance(config.message.sound.getId(), SoundCategory.PLAYERS, config.message.volume, config.message.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, client.player.getX(), client.player.getY(), client.player.getZ(), false));
+            client.getSoundManager().play(config.message.getChatSound(x, y, z));
         }
     }
 }
