@@ -33,6 +33,7 @@ public class ChatsoundsMixin {
                 client.getSoundManager().play(config.join.getChatSound(x, y, z));
 
             } else if (config.leave.enabled && key == "multiplayer.player.left") {
+                // FIXME: Chatsounds failed to recognize translation key: multiplayer.player.left
                 System.out.println(String.format("Chatsounds playing leave sound."));
                 client.getSoundManager().play(config.leave.getChatSound(x, y, z));
 
