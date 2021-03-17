@@ -13,6 +13,7 @@ import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
+// FIXME: Conflicts with ReplayMod, for some reason.
 @Mixin(ChatHud.class)
 public class ChatsoundsMixin {
     @Inject(method = "addMessage(Lnet/minecraft/text/Text;IIZ)V", at = @At("HEAD"))
