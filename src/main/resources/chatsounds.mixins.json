@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "package": "net.chatsounds.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+    ],
+    "client": [
+      "ChatsoundsMixin"
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }

@@ -1,12 +1,14 @@
 package net.chatsounds;
 
 import java.util.List;
+import java.util.logging.LogManager;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.mixin.networking.accessor.MinecraftClientAccessor;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.SoundCategory;
@@ -34,7 +36,10 @@ public class Chatsounds implements ClientModInitializer {
         // Every tick, do the following:
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             List<String> messages = client.inGameHud.getChatHud().getMessageHistory();
+            
             // TODO: Detect join, leave, death, and private messages and play different sounds for them.
+            // Use lang files to find relevant messages so works with all languages
+            // Filter out everythink prefixed by [Chat] first then filter through those
             if (messages.size() > 0) {
                 String newMessage = messages.get(messages.size() - 1);
                 // TODO: Find better way to detect new messages that allows duplicates to give notifications

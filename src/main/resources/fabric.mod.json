@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "chatsounds",
-  "version": "${version}",
+  "version": "1.0.0",
 
   "name": "Chat Sounds",
   "description": "Plays a sound whenever a chat message is received.",
@@ -25,8 +25,9 @@
     ]
   },
   "mixins": [
-  ],
+    "chatsounds.mixins.json"
 
+  ],
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
