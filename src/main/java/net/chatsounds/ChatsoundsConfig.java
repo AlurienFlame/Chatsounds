@@ -14,26 +14,66 @@ import net.minecraft.util.Identifier;
 @Config(name = "chatsounds")
 public class ChatsoundsConfig implements ConfigData {
 
-    // Message
-    @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
-    public MessageConfig message = new MessageConfig();
+    // Join
+    @ConfigEntry.Gui.CollapsibleObject
+    public JoinConfig join = new JoinConfig();
+
+    // Leave
+    @ConfigEntry.Gui.CollapsibleObject
+    public LeaveConfig leave = new LeaveConfig();
+
+    // Death
+    @ConfigEntry.Gui.CollapsibleObject
+    public DeathConfig death = new DeathConfig();
 
     // Private Message
-    @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
+    @ConfigEntry.Gui.CollapsibleObject
     public PmConfig pm = new PmConfig();
 
-    // TODO: Leave Message
-    // TODO: Join Message
-    // TODO: Death message
+    // Advancement announcement
+    @ConfigEntry.Gui.CollapsibleObject
+    public AdvancementConfig advancement = new AdvancementConfig();
 
-    public static class MessageConfig{
+    // Message
+    @ConfigEntry.Gui.CollapsibleObject
+    public MessageConfig message = new MessageConfig();
+
+    // TODO: Good sounding defaults
+
+    public static class JoinConfig{
         
-        boolean enabled = true;
+        public boolean enabled = true;
         @ConfigEntry.BoundedDiscrete(max = 1)
         float volume = 1f;
         @ConfigEntry.BoundedDiscrete(max = 1)
-        float pitch = .3f;
-        Sounds sound = Sounds.ENTITY_ITEM_PICKUP;
+        float pitch = 0.3f;
+        Sounds sound = Sounds.BLOCK_ANVIL_LAND;
+
+        public PositionedSoundInstance getChatSound(double x, double y, double z) {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        }
+    }
+    public static class LeaveConfig{
+        
+        public boolean enabled = true;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float volume = 1f;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float pitch = 0.3f;
+        Sounds sound = Sounds.BLOCK_ANVIL_LAND;
+
+        public PositionedSoundInstance getChatSound(double x, double y, double z) {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        }
+    }
+    public static class DeathConfig{
+        
+        public boolean enabled = true;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float volume = 1f;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float pitch = 0.3f;
+        Sounds sound = Sounds.BLOCK_ANVIL_LAND;
 
         public PositionedSoundInstance getChatSound(double x, double y, double z) {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
@@ -42,7 +82,21 @@ public class ChatsoundsConfig implements ConfigData {
 
     public static class PmConfig{
         
-        boolean enabled = true;
+        public boolean enabled = true;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float volume = 1f;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float pitch = 0.3f;
+        Sounds sound = Sounds.BLOCK_ANVIL_LAND;
+
+        public PositionedSoundInstance getChatSound(double x, double y, double z) {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        }
+    }
+
+    public static class AdvancementConfig{
+        
+        public boolean enabled = true;
         @ConfigEntry.BoundedDiscrete(max = 1)
         float volume = 1f;
         @ConfigEntry.BoundedDiscrete(max = 1)
@@ -54,6 +108,20 @@ public class ChatsoundsConfig implements ConfigData {
         }
     }
     
+    public static class MessageConfig{
+        
+        public boolean enabled = true;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float volume = 1f;
+        @ConfigEntry.BoundedDiscrete(max = 1)
+        float pitch = .3f;
+        Sounds sound = Sounds.ENTITY_ITEM_PICKUP;
+
+        public PositionedSoundInstance getChatSound(double x, double y, double z) {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        }
+    }
+
     public enum Sounds {
         // TODO: make every sound in the game available
         // List<String> messageSound = Arrays.asList(Registry.SOUND_EVENT.getIds().toArray()).stream().map(item -> item.getPath()).collect(Collectors.toList());
