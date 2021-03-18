@@ -41,7 +41,7 @@ public class ChatsoundsMixin {
                 System.out.println(String.format("Chatsounds playing death sound."));
                 client.getSoundManager().play(config.death.getChatSound(x, y, z));
 
-            } else if (config.pm.enabled && key == "commands.message.display.incoming") {
+            } else if (config.pm.enabled && key.contains("commands.message.display.")) {
                 System.out.println(String.format("Chatsounds playing pm sound."));
                 client.getSoundManager().play(config.pm.getChatSound(x, y, z));
 
