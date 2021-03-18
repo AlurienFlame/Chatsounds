@@ -84,7 +84,7 @@ public class ChatsoundsConfig implements ConfigData {
         float volume = 1f;
         @ConfigEntry.BoundedDiscrete(max = 1)
         float pitch = 1f;
-        Sounds sound = Sounds.BLOCK_LILY_PAD_PLACE;
+        Sounds sound = Sounds.ENTITY_VILLAGER_WORK_CARTOGRAPHER;
 
         public PositionedSoundInstance getChatSound(double x, double y, double z) {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
