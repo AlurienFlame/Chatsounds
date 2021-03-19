@@ -37,6 +37,8 @@ public class ChatsoundsConfig implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     public MessageConfig message = new MessageConfig();
 
+    // TODO: "Preview sound" button.
+
     public static class JoinConfig{
         
         public boolean enabled = true;
@@ -50,6 +52,7 @@ public class ChatsoundsConfig implements ConfigData {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
         }
     }
+
     public static class LeaveConfig{
         
         public boolean enabled = true;
@@ -63,6 +66,7 @@ public class ChatsoundsConfig implements ConfigData {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
         }
     }
+
     public static class DeathConfig{
         
         public boolean enabled = true;
