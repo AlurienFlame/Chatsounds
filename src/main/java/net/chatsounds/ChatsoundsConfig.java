@@ -46,7 +46,7 @@ public class ChatsoundsConfig implements ConfigData {
         float volume = 1f;
         @ConfigEntry.BoundedDiscrete(max = 1)
         float pitch = 1f;
-        Sounds sound = Sounds.BLOCK_BELL_USE;
+        Sounds sound = Sounds.BLOCK_BARREL_OPEN;
 
         public PositionedSoundInstance getChatSound(double x, double y, double z) {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
@@ -59,8 +59,8 @@ public class ChatsoundsConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(max = 1)
         float volume = 1f;
         @ConfigEntry.BoundedDiscrete(max = 1)
-        float pitch = 0.1f;
-        Sounds sound = Sounds.BLOCK_BELL_USE;
+        float pitch = 1f;
+        Sounds sound = Sounds.BLOCK_BARREL_CLOSE;
 
         public PositionedSoundInstance getChatSound(double x, double y, double z) {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
@@ -71,10 +71,10 @@ public class ChatsoundsConfig implements ConfigData {
         
         public boolean enabled = true;
         @ConfigEntry.BoundedDiscrete(max = 1)
-        float volume = 0.1f;
+        float volume = 1f;
         @ConfigEntry.BoundedDiscrete(max = 1)
-        float pitch = 1f;
-        Sounds sound = Sounds.BLOCK_ANVIL_LAND;
+        float pitch = 0.1f;
+        Sounds sound = Sounds.BLOCK_BELL_USE;
 
         public PositionedSoundInstance getChatSound(double x, double y, double z) {
             return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
@@ -113,9 +113,9 @@ public class ChatsoundsConfig implements ConfigData {
         
         public boolean enabled = true;
         @ConfigEntry.BoundedDiscrete(max = 1)
-        float volume = 0.5f;
+        float volume = 0.3f;
         @ConfigEntry.BoundedDiscrete(max = 1)
-        float pitch = .3f;
+        float pitch = 0.3f;
         Sounds sound = Sounds.ENTITY_ITEM_PICKUP;
 
         public PositionedSoundInstance getChatSound(double x, double y, double z) {
