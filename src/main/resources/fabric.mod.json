@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
   "id": "chatsounds",
-  "version": "2.0.0",
+  "version": "1.1.0",
 
   "name": "Chat Sounds",
   "description": "Plays a sound whenever a chat message is received.",
   "authors": [
-    "AlurienFlame"
+    "AlurienFlame",
+    "davidalb97"
   ],
   "contact": {
     "sources": "https://github.com/AlurienFlame/chatsounds"
