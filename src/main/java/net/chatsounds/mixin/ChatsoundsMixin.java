@@ -27,39 +27,32 @@ public class ChatsoundsMixin {
 
         if (message instanceof TranslatableText) {
             String key = ((TranslatableText)message).getKey();
-            System.out.println(String.format("Translation key: %s", key));
 
             if (config.join.enabled && key.contains("multiplayer.player.joined")) {
-                System.out.println(String.format("Chatsounds playing join sound."));
                 client.getSoundManager().play(config.join.getChatSound(x, y, z));
 
             } else if (config.leave.enabled && key.contains("multiplayer.player.left")) {
-                System.out.println(String.format("Chatsounds playing leave sound."));
                 client.getSoundManager().play(config.leave.getChatSound(x, y, z));
 
             } else if (config.death.enabled && key.contains("death.")) {
-                System.out.println(String.format("Chatsounds playing death sound."));
                 client.getSoundManager().play(config.death.getChatSound(x, y, z));
 
             } else if (config.pm.enabled && key.contains("commands.message.display.")) {
-                System.out.println(String.format("Chatsounds playing pm sound."));
                 client.getSoundManager().play(config.pm.getChatSound(x, y, z));
 
             } else if (config.advancement.enabled && key.contains("chat.type.advancement.")) {
-                System.out.println(String.format("Chatsounds playing advancement sound."));
                 client.getSoundManager().play(config.advancement.getChatSound(x, y, z));
                 
             } else if (config.message.enabled && key.contains("chat.type.")) {
-                System.out.println(String.format("Chatsounds playing message sound."));
                 client.getSoundManager().play(config.message.getChatSound(x, y, z));
 
             } else {
-                System.out.println(String.format("Chatsounds failed to recognize translation key: %s", key));
+                System.out.println(String.format("Chatsounds failed to find translation key: %s", key));
                 client.getSoundManager().play(config.message.getChatSound(x, y, z));
             }
 
         } else {
-            System.out.println("Chatsounds failed to find translation key.");
+            // Fall back to the message sound
             if (config.message.enabled) client.getSoundManager().play(config.message.getChatSound(x, y, z));
         }
     }
