@@ -1,5 +1,7 @@
 name: Build and Publish
-on: release
+on:
+  release:
+    types: [published]
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
