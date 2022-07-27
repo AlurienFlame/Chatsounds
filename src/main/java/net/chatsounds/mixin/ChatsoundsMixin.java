@@ -11,7 +11,8 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TextContent;
+import net.minecraft.text.TranslatableTextContent;
 
 // FIXME: Conflicts with ReplayMod, for some reason.
 @Mixin(ChatHud.class)
@@ -25,8 +26,10 @@ public class ChatsoundsMixin {
         double y = client.player.getY();
         double z = client.player.getZ();
 
-        if (message instanceof TranslatableText) {
-            String key = ((TranslatableText)message).getKey();
+        TextContent content = message.getContent();
+
+        if (content instanceof TranslatableTextContent) {
+            String key = ((TranslatableTextContent) content).getKey();
 
             if (config.join.enabled && key.contains("multiplayer.player.joined")) {
                 client.getSoundManager().play(config.join.getChatSound(x, y, z));
@@ -42,7 +45,7 @@ public class ChatsoundsMixin {
 
             } else if (config.advancement.enabled && key.contains("chat.type.advancement.")) {
                 client.getSoundManager().play(config.advancement.getChatSound(x, y, z));
-                
+
             } else if (config.message.enabled && key.contains("chat.type.")) {
                 client.getSoundManager().play(config.message.getChatSound(x, y, z));
 
@@ -53,7 +56,9 @@ public class ChatsoundsMixin {
 
         } else {
             // Fall back to the message sound
-            if (config.message.enabled) client.getSoundManager().play(config.message.getChatSound(x, y, z));
+            if (config.message.enabled) {
+                client.getSoundManager().play(config.message.getChatSound(x, y, z));
+            }
         }
     }
 }
