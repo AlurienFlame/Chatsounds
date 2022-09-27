@@ -48,8 +48,8 @@ public class ChatsoundsConfig implements ConfigData {
         float pitch = 1f;
         Sounds sound = Sounds.BLOCK_BARREL_OPEN;
 
-        public PositionedSoundInstance getChatSound(double x, double y, double z) {
-            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        public PositionedSoundInstance getChatSound() {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0, 0, 0, true);
         }
     }
 
@@ -62,8 +62,8 @@ public class ChatsoundsConfig implements ConfigData {
         float pitch = 1f;
         Sounds sound = Sounds.BLOCK_BARREL_CLOSE;
 
-        public PositionedSoundInstance getChatSound(double x, double y, double z) {
-            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        public PositionedSoundInstance getChatSound() {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0, 0, 0, true);
         }
     }
 
@@ -76,8 +76,8 @@ public class ChatsoundsConfig implements ConfigData {
         float pitch = 0.1f;
         Sounds sound = Sounds.BLOCK_BELL_USE;
 
-        public PositionedSoundInstance getChatSound(double x, double y, double z) {
-            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        public PositionedSoundInstance getChatSound() {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0, 0, 0, true);
         }
     }
 
@@ -90,8 +90,8 @@ public class ChatsoundsConfig implements ConfigData {
         float pitch = 1f;
         Sounds sound = Sounds.ENTITY_VILLAGER_WORK_CARTOGRAPHER;
 
-        public PositionedSoundInstance getChatSound(double x, double y, double z) {
-            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        public PositionedSoundInstance getChatSound() {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0, 0, 0, true);
         }
     }
 
@@ -104,8 +104,8 @@ public class ChatsoundsConfig implements ConfigData {
         float pitch = 1f;
         Sounds sound = Sounds.ENTITY_EXPERIENCE_ORB_PICKUP;
 
-        public PositionedSoundInstance getChatSound(double x, double y, double z) {
-            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        public PositionedSoundInstance getChatSound() {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0, 0, 0, true);
         }
     }
     
@@ -118,8 +118,8 @@ public class ChatsoundsConfig implements ConfigData {
         float pitch = 0.3f;
         Sounds sound = Sounds.ENTITY_ITEM_PICKUP;
 
-        public PositionedSoundInstance getChatSound(double x, double y, double z) {
-            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false);
+        public PositionedSoundInstance getChatSound() {
+            return new PositionedSoundInstance(this.sound.getId(), SoundCategory.PLAYERS, this.volume, this.pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0, 0, 0, true);
         }
     }
 
