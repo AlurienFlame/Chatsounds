@@ -34,10 +34,10 @@
   "depends": {
     "fabricloader": ">=0.14.19",
     "fabric": ">=0.81.1",
-    "minecraft": "~1.19.4",
+    "minecraft": "1.19.*",
     "java": ">=17",
-    "modmenu": ">=4.0.5",
-    "cloth-config2": ">=8.0.75"
+    "modmenu": ">=6.2.2",
+    "cloth-config2": ">=10.0.96"
   },
   "conflicts": {
     "replaymod": "*"

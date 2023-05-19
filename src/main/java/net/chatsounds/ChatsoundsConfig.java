@@ -123,6 +123,8 @@ public class ChatsoundsConfig implements ConfigData {
         }
     }
 
+    // TODO: Add new sounds (1.19.4)
+    // TODO: Make nice vector art modicon
     public enum Sounds {
         // TODO: Find a way to make modded sounds available too
         ENTITY_ALLAY_AMBIENT_WITH_ITEM(SoundEvents.ENTITY_ALLAY_AMBIENT_WITH_ITEM),
