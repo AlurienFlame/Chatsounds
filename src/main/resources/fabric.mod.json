@@ -41,5 +41,10 @@
   },
   "conflicts": {
     "replaymod": "*"
+  },
+  "custom": {
+    "mc-publish": {
+        "loaders": ["fabric", "quilt"]
+    }
   }
 }
