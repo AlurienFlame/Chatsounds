@@ -11,6 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
+import net.minecraft.client.gui.hud.MessageIndicator;
+import net.minecraft.network.message.MessageSignatureData;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
@@ -18,7 +20,7 @@ import net.minecraft.text.TranslatableTextContent;
 // FIXME: Conflicts with ReplayMod, AdvancedChatHUD
 @Mixin(ChatHud.class)
 public class ChatsoundsMixin {
-    @Inject(method = "addMessage(Lnet/minecraft/text/Text;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V", at = @At("HEAD"))
+    @Inject(method = "addMessage(Lnet/minecraft/text/Text;)V", at = @At("HEAD"))
     public void addMessage(Text message, CallbackInfo ci) {
         ChatsoundsConfig config = AutoConfig.getConfigHolder(ChatsoundsConfig.class).getConfig();
         MinecraftClient client = MinecraftClient.getInstance();
