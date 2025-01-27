@@ -19,7 +19,7 @@
   "license": "MIT",
   "icon": "assets/chatsounds/icon.png",
 
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "client": [
       "net.chatsounds.Chatsounds"
