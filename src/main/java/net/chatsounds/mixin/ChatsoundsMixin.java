@@ -23,10 +23,10 @@ public class ChatsoundsMixin {
         MinecraftClient client = MinecraftClient.getInstance();
 
         TextContent content = message.getContent();
-
         if (content instanceof TranslatableTextContent) {
             String key = ((TranslatableTextContent) content).getKey();
 
+            // FIXME: non-system messages not playing nice with unsecured chat
             if (config.join.enabled && key.contains("multiplayer.player.joined")) {
                 client.getSoundManager().play(config.join.getChatSound());
 
