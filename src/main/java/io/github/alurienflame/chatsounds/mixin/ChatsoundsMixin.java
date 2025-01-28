@@ -1,6 +1,6 @@
-package net.chatsounds.mixin;
+package io.github.alurienflame.chatsounds.mixin;
 
-import net.chatsounds.ChatsoundsConfig;
+import io.github.alurienflame.chatsounds.ChatsoundsConfig;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

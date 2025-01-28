@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "chatsounds",
   "version": "1.1.11",
-
   "name": "Chat Sounds",
   "description": "Plays a sound whenever a chat message is received.",
   "authors": [
@@ -15,17 +14,15 @@
   "contact": {
     "sources": "https://github.com/AlurienFlame/chatsounds"
   },
-
   "license": "MIT",
   "icon": "assets/chatsounds/icon.png",
-
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.chatsounds.Chatsounds"
+      "io.github.alurienflame.chatsounds.Chatsounds"
     ],
     "modmenu": [
-      "net.chatsounds.ModMenuIntegration"
+      "io.github.alurienflame.chatsounds.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -44,7 +41,10 @@
   },
   "custom": {
     "mc-publish": {
-        "loaders": ["fabric", "quilt"]
+      "loaders": [
+        "fabric",
+        "quilt"
+      ]
     }
   }
 }
