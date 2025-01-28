@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "chatsounds",
-  "version": "1.1.11",
+  "id": "${mod_id}",
+  "version": "${mod_version}",
   "name": "Chat Sounds",
   "description": "Plays a sound whenever a chat message is received.",
   "authors": [
@@ -29,12 +29,12 @@
     "chatsounds.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.11",
-    "fabric": ">=0.100.7",
-    "minecraft": ">=1.21",
+    "fabricloader": "^${loader_version}",
+    "fabric-api": "^${fabric_api_version}",
+    "minecraft": ">=${minecraft_version}",
     "java": ">=21",
-    "modmenu": ">=11.0.0",
-    "cloth-config2": ">=15.0.127"
+    "modmenu": "*",
+    "cloth-config2": "^${cloth_config_version}"
   },
   "conflicts": {
     "replaymod": "*"
