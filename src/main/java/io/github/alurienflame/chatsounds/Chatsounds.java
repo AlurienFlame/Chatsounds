@@ -1,4 +1,4 @@
-package net.chatsounds;
+package io.github.alurienflame.chatsounds;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;

@@ -1,18 +1,16 @@
-package net.chatsounds.mixin;
+package io.github.alurienflame.chatsounds.mixin;
 
-import net.chatsounds.ChatsoundsConfig;
-
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
+import io.github.alurienflame.chatsounds.ChatsoundsConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 // FIXME: Conflicts with ReplayMod, AdvancedChatHUD
 @Mixin(ChatHud.class)
