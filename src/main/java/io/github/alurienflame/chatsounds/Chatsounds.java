@@ -4,7 +4,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.util.ActionResult;
+import net.minecraft.world.InteractionResult;
 
 public class Chatsounds implements ClientModInitializer {
 
@@ -18,11 +18,11 @@ public class Chatsounds implements ClientModInitializer {
         config = holder.getConfig();
         holder.registerLoadListener((manager, newData) -> {
             config = newData;
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         });
         holder.registerSaveListener((manager, newData) -> {
             config = newData;
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         });
     }
 }

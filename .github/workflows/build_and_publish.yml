@@ -12,10 +12,10 @@ jobs:
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v2
 
-      - name: setup jdk 21
+      - name: setup jdk 25
         uses: actions/setup-java@v4
         with:
-          java-version: 21
+          java-version: 25
           distribution: 'microsoft'
 
       - name: make gradle wrapper executable
@@ -35,4 +35,4 @@ jobs:
           # Determines the way automatic game-versions resolvement works
           game-version-filter: min-major | min-minor | releases
 
-          java: 21
+          java: 25
